@@ -1,0 +1,8 @@
+LLVM 3.5.0 from http://llvm.org/releases/download.html (UI/NCSA license)
+
+
+This is only a meta-package: it contains scripts to download and extract LLVM.
+
+Because LLVM is currently only used as a build-time dependency for terra,
+we're not shipping it as a luapower binary dependency, so we're not keeping
+its binaries in luapower's bin directory.
