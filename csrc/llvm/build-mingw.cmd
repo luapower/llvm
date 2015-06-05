@@ -13,16 +13,18 @@ for %%a in ("%path:;=";"%") do (
 set $newpath=%$newpath:"=%
 set path=!$newpath:~1!
 
-md llvm.build.mingw%1 2>nul
 md install.mingw%1 2>nul
 
+md llvm.build.mingw%1 2>nul
 cd llvm.build.mingw%1
 cmake -DLLVM_TARGETS_TO_BUILD=X86 -DCMAKE_BUILD_TYPE=Release -G "MinGW Makefiles" ../llvm.src
 cmake --build .
 cmake -DCMAKE_INSTALL_PREFIX=../install.mingw%1 -P cmake_install.cmake
+cd ..
 
-cd ../clang.build
-cmake -DLLVM_CONFIG=../install/bin/llvm-config -DCMAKE_BUILD_TYPE=Release -G "MinGW Makefiles" ../clang.src
+md clang.build.mingw%1 2>nul
+cd clang.build.mingw%1
+cmake -DLLVM_CONFIG=../install.mingw%1/bin/llvm-config -DCMAKE_BUILD_TYPE=Release -G "MinGW Makefiles" ../clang.src
 cmake --build .
 cmake -DCMAKE_INSTALL_PREFIX=../install.mingw%1 -P cmake_install.cmake
 
