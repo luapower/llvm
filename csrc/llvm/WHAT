@@ -1,8 +1,9 @@
 LLVM 3.5.0 from http://llvm.org/releases/download.html (UI/NCSA license)
 
 
-This is only a meta-package: it contains scripts to download and extract LLVM.
+This is only a meta-package: it contains scripts to download, extract 
+and build LLVM and Clang.
 
-Because LLVM is currently only used as a build-time dependency for terra,
-we're not shipping it as a luapower binary dependency, so we're not keeping
-its binaries in luapower's bin directory.
+The reason we're not shipping LLVM binaries is because LLVM is currently 
+only needed to build Terra. LLVM doesn't support dynamic linking on Windows
+anyway, so it can't be a runtime dependency of anything.
