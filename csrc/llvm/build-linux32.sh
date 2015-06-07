@@ -1,1 +1,1 @@
-P=linux32 ./build.sh
+P=linux32 M="-DLLVM_ENABLE_TERMINFO=OFF" ./build.sh
