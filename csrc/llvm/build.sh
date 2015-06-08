@@ -8,6 +8,8 @@ cd llvm.build.$P
 cmake $M $LM \
 	-DLLVM_TARGETS_TO_BUILD=X86 \
 	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_C_FLAGS=-U_FORTIFY_SOURCE \
+	-DCMAKE_CXX_FLAGS=-U_FORTIFY_SOURCE \
 	-G "Unix Makefiles" ../llvm.src
 cmake --build .
 cmake -DCMAKE_INSTALL_PREFIX=../install.$P -P cmake_install.cmake
@@ -18,6 +20,8 @@ cd clang.build.$P
 cmake $M $CM \
 	-DLLVM_CONFIG=../install.$P/bin/llvm-config \
 	-DCMAKE_BUILD_TYPE=Release \
+	-DCMAKE_C_FLAGS=-U_FORTIFY_SOURCE \
+	-DCMAKE_CXX_FLAGS=-U_FORTIFY_SOURCE \
 	-G "Unix Makefiles" ../clang.src
 cmake --build .
 cmake -DCMAKE_INSTALL_PREFIX=../install.$P -P cmake_install.cmake
