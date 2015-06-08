@@ -5,7 +5,7 @@ mkdir -p install.$P
 
 mkdir -p llvm.build.$P
 cd llvm.build.$P
-cmake $M $LM \
+cmake $M \
 	-DLLVM_TARGETS_TO_BUILD=X86 \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_C_FLAGS=-U_FORTIFY_SOURCE \
@@ -17,7 +17,7 @@ cd ..
 
 mkdir -p clang.build.$P
 cd clang.build.$P
-cmake $M $CM \
+cmake $M \
 	-DLLVM_CONFIG=../install.$P/bin/llvm-config \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_C_FLAGS=-U_FORTIFY_SOURCE \
