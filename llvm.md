@@ -2,8 +2,12 @@
 tagline: LLVM + Clang binaries
 ---
 
-This is a meta-package containing necessary scripts to download 
-and build LLVM + Clang, which is a build dependency for [terra].
+This package contains:
+
+ * scripts to download and build LLVM + Clang
+ * LLVM + Clang binaries, released [separately] because they are huge.
+
+[separately]: https://github.com/luapower/llvm/releases
 
 ## Binaries
 
@@ -14,11 +18,15 @@ They should be unpacked in `csrc/llvm`:
 	wget https://github.com/luapower/llvm/releases/download/3.5.0/install.linux64.zip
 	unzip install.linux64
 
-[separately]: https://github.com/luapower/llvm/releases
+LLVM binaries should be as backwards compatible as the rest of luapower.
+Clang is built without ncurses on Linux for maximum portability. 
+Note that MinGW-w64 is not yet fully supported by LLVM, so consider
+the mingw32/64 builds experimental for now (if problems are found, 
+I'll switch to VS2013).
 
 ## Building
 
-LLVM has additional requirements besides the [base toolchain][building].
+LLVM has additional requirements besides the [base toolchain][building]:
 
 #### Windows
 	
