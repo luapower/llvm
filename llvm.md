@@ -8,7 +8,11 @@ and build LLVM + Clang, which is a build dependency for [terra].
 ## Binaries
 
 Because binaries are huge, they are released [separately]. 
-They should be unpacked in `csrc/llvm`.
+They should be unpacked in `csrc/llvm`:
+
+	cd csrc/llvm
+	wget https://github.com/luapower/llvm/releases/download/3.5.0/install.linux64.zip
+	unzip install.linux64
 
 [separately]: https://github.com/luapower/llvm/releases
 
