@@ -11,18 +11,17 @@ This package contains:
 
 ## Binaries
 
-Because binaries are huge, they are released [separately]. 
-They should be unpacked in `csrc/llvm`:
+Binaries should be unpacked in `csrc/llvm`:
 
 	cd csrc/llvm
 	wget https://github.com/luapower/llvm/releases/download/3.5.0/install.linux64.zip
 	unzip install.linux64
 
-LLVM binaries should be as backwards compatible as the rest of luapower.
+LLVM binaries are as backwards compatible as the rest of luapower.
 Clang is built without ncurses on Linux for maximum portability. 
 Note that MinGW-w64 is not yet fully supported by LLVM, so consider
 the mingw32/64 builds experimental for now (if problems are found, 
-I'll switch to VS2013).
+I'll switch to a VS2013 build).
 
 ## Building
 
