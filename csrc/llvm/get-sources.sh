@@ -18,7 +18,7 @@ get() {
 		if [ "$OSTYPE" = "msys" ]; then
 			./xzdec.exe $1 | tar xfv - -C $2 --strip-components=1
 		else
-			tar xfv $1 -C $2 --strip-components=1
+			tar xf $1 -C $2 --strip-components=1
 		fi
 	}
 }
